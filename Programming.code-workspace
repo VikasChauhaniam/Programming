@@ -11,7 +11,9 @@
 			"cmath": "cpp",
 			"ostream": "cpp",
 			"forward_list": "cpp",
-			"list": "cpp"
+			"list": "cpp",
+			"vector": "cpp",
+			"iosfwd": "cpp"
 		}
 	}
 }
