@@ -591,3 +591,39 @@ inline void fxnName(){   //just add inline in front of fxn.
 3. only a friend class can initialise the object and call private constructor
 
 //-------------------------------------------------------Virtual Constructor & Destructor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ---------------------------------------------------------------------------------------------------------LINK LIST
+class Node{
+    int data;
+    Node* next;
+};
