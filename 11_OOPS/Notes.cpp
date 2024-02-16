@@ -627,3 +627,20 @@ class Node{
     int data;
     Node* next;
 };
+
+Node* newNode =new Node();
+
+//-------------------------------------------------------------virtual keyword
+
+1.  Its a way to achieve RUN time Polymorphism
+2.  VTables
+    a. Formed for every class having atleast one virtual function and for its derived classes.
+    b. It is static arrays, hence one instance for a class.
+    c. Vptr(a hidden member pointer) is added by compiler to classes with virtual and its derived classes.
+    d. Depending upon the object type Vptr is bounded to a VTable.
+3. VTables are created at compile time.
+4. when object of a particular type is created at runtime. 
+There will be a VPtr  which will be initialised to point to a static VTable at the time of construction.
+
+5. constructor cant be virtual
+6 . destructor can be virtual..make base class destructor virtual.
