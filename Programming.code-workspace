@@ -14,7 +14,10 @@
 			"list": "cpp",
 			"vector": "cpp",
 			"iosfwd": "cpp",
-			"stack": "cpp"
+			"stack": "cpp",
+			"__split_buffer": "cpp",
+			"deque": "cpp",
+			"string": "cpp"
 		}
 	}
 }
