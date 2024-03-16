@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-
+#include<vector>
 
 class TriNode{
     public:
@@ -96,6 +96,47 @@ bool find(TriNode* node, string s){
     return find(child, s.substr(1));
 }
 
+void otherStrings(TriNode* node, vector<string> &ans, string v){
+    if(node->is_Terminal == true){
+        ans.push_back(v);
+    }
+
+    for(char ch = 'a'; ch <= 'z'; ch++){
+        int i = ch- 'a';
+
+        if(node->childrenArray[i] != NULL){
+            
+            v.push_back(ch);
+            
+            TriNode* newnode = node->childrenArray[i];
+            otherStrings(newnode, ans, v);
+            v.pop_back();
+            
+        }
+        
+    }
+}
+
+void printPrefix(TriNode* root, string s, vector<string> &ans){
+    if(s.length() == 0){
+        TriNode*  lastChar = root;
+        otherStrings(lastChar, ans, s);
+    }
+    
+    char ch = s[0];
+    int indx = ch - 'a';
+    TriNode*  child;
+    if(root->childrenArray[indx] != NULL){
+        child = root->childrenArray[indx];
+    }else{
+        return;
+    }
+
+    
+    printPrefix(child, s.substr(1), ans);
+    
+}
+
 int main(){
 
     TriNode* root = new TriNode('-'); 
@@ -107,27 +148,35 @@ int main(){
     insertNode(root, "viky");
     cout<<endl;
 
-    insertNode(root, "vikyis");
+    insertNode(root, "vikram");
     cout<<endl;
 
     //SEARCH
-    if(find(root, "vikas")){
-        cout<<"element found"<<endl;
-    }
-    else{
-        cout<<"element NOT found"<<endl;
-    }
+    // if(find(root, "vikas")){
+    //     cout<<"element found"<<endl;
+    // }
+    // else{
+    //     cout<<"element NOT found"<<endl;
+    // }
 
-    cout<<endl;
-    deleteNode(root, "vikas");
-    cout<<endl;
-    
-    //SEARCH
-    if(find(root, "vikas")){
-        cout<<"element found"<<endl;
-    }
-    else{
-        cout<<"element NOT found"<<endl;
+    // cout<<endl;
+    // deleteNode(root, "vikas");
+    // cout<<endl;
+
+    // //SEARCH
+    // if(find(root, "vikas")){
+    //     cout<<"element found"<<endl;
+    // }
+    // else{
+    //     cout<<"element NOT found"<<endl;
+    //}
+
+    vector<string> ans;
+    string input = "vik";
+    printPrefix(root, input, ans);
+
+    for(auto i : ans){
+        cout<<input+i<<endl;
     }
 
     return 0;
